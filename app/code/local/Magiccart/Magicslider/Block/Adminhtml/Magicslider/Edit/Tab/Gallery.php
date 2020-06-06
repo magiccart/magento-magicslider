@@ -34,7 +34,7 @@ class Magiccart_Magicslider_Block_Adminhtml_Magicslider_Edit_Tab_Gallery extends
             );
 
             $this->getUploader()->getConfig()
-                ->setUrl(Mage::getModel('adminhtml/url')->addSessionParam()->getUrl('*/*/upload'))
+                ->setUrl(Mage::getModel('adminhtml/url')->getUrl('*/*/upload'))
                 ->setFileField('image')
                 ->setFilters(array(
                     'images' => array(
@@ -49,7 +49,7 @@ class Magiccart_Magicslider_Block_Adminhtml_Magicslider_Edit_Tab_Gallery extends
 
             $this->getUploader()->getUploaderConfig()
                 ->setFileParameterName('image')
-                ->setTarget(Mage::getModel('adminhtml/url')->addSessionParam()->getUrl('*/*/upload'));
+                ->setTarget(Mage::getModel('adminhtml/url')->getUrl('*/*/upload'));
 
             $browseConfig = $this->getUploader()->getButtonConfig();
             $browseConfig->setAttributes(array(
