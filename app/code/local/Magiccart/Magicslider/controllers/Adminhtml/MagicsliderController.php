@@ -113,6 +113,18 @@ class Magiccart_Magicslider_Adminhtml_MagicsliderController extends Mage_Adminht
 												    ->addJs('lib/uploader/fusty-flow-factory.js')
 												    ->addJs('mage/adminhtml/uploader/instance.js');
 			}
+
+			try {	
+				if (class_exists('Maven_Html5uploader_Block_Adminhtml_Media_Uploader')) {
+				    $this->getLayout()->getBlock('head')->addItem('skin_css','css/maven_html5upload/styles.css')
+				    									->addItem('skin_js','js/maven_html5upload/jsuploader.js')
+				    									->addItem('skin_js','js/maven_html5upload/baseuploader.js')
+				    									->addItem('skin_js','js/maven_html5upload/script.js');
+				}	
+			} catch (Exception $e) {
+				
+			}
+
 			$this->_addContent($this->getLayout()->createBlock('magicslider/adminhtml_magicslider_edit'))
 			->_addLeft($this->getLayout()->createBlock('magicslider/adminhtml_magicslider_edit_tabs'));
 
